@@ -1,0 +1,136 @@
+﻿@model cmsbeta5.Models.Subject
+@using cmsbeta5.Models
+@{
+    ViewBag.Title = "Index";
+
+}
+
+
+
+
+<head>
+    <title>Home</title>
+   
+  
+
+</head>
+<body>
+   
+    
+
+    <nav class="navbar navbar-default" style="background-color:#F9864D; color:white;">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" style="background-color:#F9864D; color:white;" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only" style="background-color:#F9864D; color:white;">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#" style="background-color:#F9864D; color:white;">FUFCIT</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+
+
+
+                    <li>
+                        <div class="btn-group">
+                            <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+                                Classes
+                                <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                @foreach (Subject g in ViewBag.list)
+                                {
+                                    <li><a>@Html.ActionLink(g.Name + " " + g.ClassName, "ClassMenu", new { className = g.ClassName })</a></li>
+                                }
+                            </ul>
+                        </div>
+                    </li>
+
+
+
+
+                </ul>
+
+
+
+                <ul class="nav navbar-nav navbar-right">
+                    <div class="dropdown">
+                        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+                            @ViewBag.teacher.Name
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="\Main" style="background-color:#F9864D; color:white;">Logout</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="\Teacher\changePassword" style="background-color:#F9864D; color:white;">Change Password </a></li>
+
+                        </ul>
+                    </div>
+
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+   
+        <div class="row">
+            <div class="col-sm-6 col-lg-4 col-lg-offset-4">
+
+                <label for="inputEmail" class="col-md-4 col-lg-4 col-lg-offset-4">Search Data</label>
+
+
+
+            </div>
+        </div>
+
+        <div class="row">
+        </div>
+        <div class="row">
+
+            <div class="col-sm-6 col-lg-4 col-lg-offset-4">
+                <div class="form-group">
+                    <label for="inputEmail" class="col-md-4 control-label">Enter The Keywords to Search :</label>
+                    <div class="col-md-8">
+                        <input type="text" class="form-control" id="valu" name="keywords" placeholder="e.g Bsef12m555" onkeypress="keyPress();">
+                        <input type="text" class="form-control" id="v2" value="@ViewBag.teacher.Name"  name="teacherName" style="visibility:hidden;">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-sm-6 col-lg-4 col-lg-offset-4">
+                <div class="form-group">
+                    <button class="btn" id="but" onclick="proCheck()">Search</button>
+
+                </div>
+            </div>
+        </div>
+   
+    <div id="alpha" > </div>
+    
+   
+</body>
+<script type="text/javascript">
+
+    document.getElementById("but").onclick = function () {
+        Check()
+    }
+
+
+    function Check() {
+        var type = $("#valu").val();
+      
+    
+        var value = $("#v2").val();
+        $.post("/Teacher/Search", {input :type, id: value },
+        function (data) {
+            $("#alpha").empty().append(data);
+        });
+    }
+</script>

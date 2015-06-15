@@ -1,0 +1,98 @@
+﻿@{
+    ViewBag.Title = "Messages";
+}
+@model IEnumerable<cmsbeta5.Models.Student>
+           <head>
+               <title>Messages</title>
+<script>
+    function isValid() {
+        var va = document.getElementById('encHt').value;
+        var id = document.getElementById('id').value;
+        if (va.length < 1) {
+            alert("Error");
+            return false;
+        }
+       
+
+    }
+</script>
+
+               </head>
+
+
+
+<body>
+
+    <nav class="navbar navbar-default" style="background-color:#F9864D; color:white;">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" style="background-color:#F9864D; color:white;" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only" style="background-color:#F9864D; color:white;">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#" style="background-color:#F9864D; color:white;">FUFCIT</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+
+                    <li><a href="#"><label style="background-color:#F9864D; color:white;">Classes</label> <span class="sr-only">(current)</span></a></li>
+                    <li><a href="#"><label style="background-color:#F9864D; color:white;">Messages</label> </a></li>
+
+
+
+                </ul>
+
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#" style="background-color:#F9864D; color:white;">Teacher or Student</a></li>
+
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+    <form class="form-horizontal" role="form">
+        <div class="row">
+            <div class=" col-lg-4 col-lg-offset-4">
+                <div class="form-group">
+                    <label class="col-md-4 "><h1>     Send Message<h1></label>
+
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6 col-lg-4 col-lg-offset-4">
+                <div class="form-group">
+                    <label for="inputEmail" class="col-md-4 control-label">TO:</label>
+                    <div class="col-md-8">
+                        <input type="text" class="form-control" id="id" placeholder="e.g Bsef12m501">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-6 col-lg-4 col-lg-offset-4">
+                <div class="form-group">
+                    <div class="form-group">
+                        <label for="inputEmail" class="col-md-4 control-label">Message Content</label>
+                        <div class="col-md-8">
+                            <textarea class="form-control attr" id="encHt" placeholder="Message Content" name="Content"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6 col-lg-4 col-lg-offset-4">
+                <div class="form-group">
+                    <input type="submit" class="btn" onclick="isValid()" value="Send Message" />
+
+                </div>
+            </div>
+        </div>
+    </form>
+</body>

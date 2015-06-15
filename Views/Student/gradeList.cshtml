@@ -1,0 +1,78 @@
+﻿@{
+    ViewBag.Title = "gradeList";
+}
+
+@model cmsbeta5.Models.Subject
+@using cmsbeta5.Models
+@{
+    ViewBag.Title = "Index";
+}
+<head>
+    <title>Home</title>
+
+
+
+
+
+
+</head>
+<body>
+
+    <nav class="navbar navbar-default" style="background-color:#F9864D; color:white;">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" style="background-color:#F9864D; color:white;" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only" style="background-color:#F9864D; color:white;">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#" style="background-color:#F9864D; color:white;">Brand</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+
+                    <li><a href="/Student"><label style="background-color:#F9864D; color:white;">Classes </label> <span class="sr-only">(current)</span></a></li>
+                    <li><a href="/Admin/Messages"><label style="background-color:#F9864D; color:white;">Messages </label> </a></li>
+
+
+
+                </ul>
+
+
+                <ul class="nav navbar-nav navbar-right">
+                    <div class="dropdown">
+                        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+                            @ViewBag.Student.LoginId
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="\Main" style="background-color:#F9864D; color:white;">Logout</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="\Student\ChangePassword" style="background-color:#F9864D; color:white;">Change Password </a></li>
+
+                        </ul>
+                    </div>
+
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+    <form class="form-horizontal" role="form">
+        @foreach (Subject g in ViewBag.list)
+        {
+            <div class="row">
+                <div class="col-sm-6 col-lg-4 col-lg-offset-4">
+
+                    <label for="inputEmail" class="col-md-4 col-lg-4 col-lg-offset-4">@g.Name</label>
+
+
+
+                </div>
+            </div>
+        }
+
+    </form>
+</body>

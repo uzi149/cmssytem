@@ -1,0 +1,35 @@
+﻿@{
+    List<string []> arr1=(List<string[]>)Model;
+}
+@using cmsbeta5.Models
+<table class="table table-bordered table-responsive" style="width:600px;margin-left:420px;color:green;margin-top:200px">
+    <tr>
+        <th>
+            Student Id
+        </th>
+        <th>
+            Assignment Description
+        </th>
+        <th>
+            Class Name
+        </th>
+    </tr>
+    @foreach (string[] arr in arr1)
+    {
+        <tr>
+            <td>
+                @arr[0]
+            </td>
+            <td>
+                @arr[1]
+
+            </td>
+            <td>
+                @arr[2]
+            </td>
+
+        </tr>
+
+
+    }
+</table>

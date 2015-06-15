@@ -1,0 +1,98 @@
+﻿@model cmsbeta5.Models.Subject
+@using cmsbeta5.Models
+@{
+    ViewBag.Title = "Index";
+}
+<head>
+    <title>Home</title>
+
+
+
+
+   
+
+</head>
+<body>
+
+    <nav class="navbar navbar-default" style="background-color:#F9864D; color:white;">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" style="background-color:#F9864D; color:white;" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only" style="background-color:#F9864D; color:white;">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#" style="background-color:#F9864D; color:white;">FUFCIT</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+
+
+                    @Html.ActionLink("Display Info Of Subjects", "displayStudentInfo", new { id = ViewBag.Student .LoginId}, new { @style = "color:white;" })
+
+
+
+                </ul>
+
+
+                <ul class="nav navbar-nav navbar-right">
+                    <div class="dropdown">
+                        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+                            @ViewBag.Student.LoginId
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="\Main" style="background-color:#F9864D; color:white;">Logout</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="\Student\ChangePassword" style="background-color:#F9864D; color:white;">Change Password </a></li>
+
+                        </ul>
+                    </div>
+
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+        <h1>Activities In The Current Session</h1>
+                @foreach (Activity g in ViewBag.list) { 
+        <div  style="border-color: red; border-bottom-width: 10px; margin-left: 45px; height: 200px; width: 1200px;">
+            <div class="">
+                <div class="row">
+                    <h2>Activity</h2>
+                   <label for="inputEmail" class="">The Name of the Activity is : <strong style="color: #F9864D">  @g.description </strong></label>
+                </div>
+                @if(g.description!=" No current Activities")
+                { 
+                    <label for="inputEmail" class="">By The Instructor:  <strong style="color: #F9864D"> @g.teacherId</strong></label>
+                <a href="@Url.Action("Download", "Student", new {d=g.filePath})"> Download</a>
+                   if (g.className == "Submitted") {
+                    <br />
+                    <br />
+                    <label>You have Submitted The assignment</label>}
+else
+{
+            <form action="/Student/save" method="post" enctype="multipart/form-data">
+                Upload Assignment:
+                <div style="margin-left:500px">
+                    <input type="file" name="image" />
+                </div>
+                <input type="text" value=@ViewBag.student.LoginId style="visibility:hidden;" name="studentId" />
+                <br />
+
+                <input type="text" value=@g.Id name="activityId" style="visibility:hidden" />
+
+                <input type="submit" class="btn" value="upload" />
+            </form>
+
+}
+                }
+
+
+</div>
+        </div>
+                }
+
+</body>

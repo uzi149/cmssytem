@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="de874ff8f13448969bd9a8954aea3730" Name="Diagram1" ZoomLevel="82">
+        <EntityTypeShape EntityType="DBModel.Activity" Width="1.5" PointX="8.25" PointY="14.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.Ass" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.Assignment" Width="1.5" PointX="5.25" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.attend" Width="1.5" PointX="7.5" PointY="18.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.Attendence" Width="1.5" PointX="9.75" PointY="18.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.Attendence1" Width="1.5" PointX="8.25" PointY="22.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.Class" Width="1.5" PointX="6" PointY="22.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.gradeActivity" Width="1.5" PointX="8.25" PointY="24.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.Grade" Width="1.5" PointX="8.25" PointY="10" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.Login" Width="1.5" PointX="0.75" PointY="11" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.Marking" Width="1.5" PointX="5.25" PointY="12.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.Student" Width="1.5" PointX="3" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.Subject" Width="1.5" PointX="5.25" PointY="16.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.Table" Width="1.5" PointX="8.25" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.tcr" Width="1.5" PointX="3" PointY="12.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.Teacher" Width="1.5" PointX="3" PointY="15.375" IsExpanded="true" />
+        <AssociationConnector Association="DBModel.FK_Activity_ToTable" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_Activity_ToTable_1" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_Table_ToTable_1" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_Table_ToAssignment" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_attend_ToTable" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_attend_ToTable_1" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_Attendence_ToTable" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_Attendence1_ToTable" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_gradeActivity_ToTable" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_Subject_ToTable" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_Grades_ToTable" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_Grades_ToTable_1" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_Grades_ToTable_2" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_Student_ToTable" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_tcr_ToTable" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_Teacher_ToTable" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_Markings_ToTable" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_Table_ToTable" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_Subject_ToTable_1" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

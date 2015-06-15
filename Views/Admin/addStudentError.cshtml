@@ -1,0 +1,117 @@
+﻿@{
+    ViewBag.Title = "AddStudent";
+}
+@model IEnumerable<cmsbeta5.Models.Student>
+
+<body>
+    <nav class="navbar navbar-default" style="background-color:#F9864D; color:white;">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+
+                <button type="button" class="navbar-toggle collapsed" style="background-color:#F9864D; color:white;" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only" style="background-color:#F9864D; color:white;">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#" style="background-color:#F9864D; color:white;">Fake College</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+
+                    <li><a href="/Admin/AddTeacher"><label style="background-color:#F9864D; color:white;">Add Teacher</label> </a></li>
+                    <li><a href="/Admin/AddStudent"><label style="background-color:#F9864D; color:white;">Add Student</label> </a></li>
+                    <li><a href="/Admin/ResetPassword"><label style="background-color:#F9864D; color:white;">Reset Password</label> </a></li>
+                    <li><a href="/Admin/FreezeMember"><label style="background-color:#F9864D; color:white;">Freeze Account</label> </a></li>
+                    <li><a href="/Admin/AssignSubject"><label style="background-color:#F9864D; color:white;">Assign Subject</label> </a></li>
+
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <div class="dropdown">
+                        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+                            Admin
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="\Main" style="background-color:#F9864D; color:white;">Logout</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="\Admin\ForgetPassword" style="background-color:#F9864D; color:white;">Change Password </a></li>
+
+                        </ul>
+                    </div>
+
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+    <form class="form-horizontal" role="form" action="/Admin/class1" method="post">
+
+
+
+
+        <div class="col-sm-6 col-lg-4 col-lg-offset-4">
+
+            <label for="inputEmail" class="col-md-4 col-lg-4 col-lg-offset-4"><h1>Enter A New Class</h1></label>
+
+
+
+        </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-sm-6 col-lg-4 col-lg-offset-4">
+                <div class="form-group">
+                    <label for="inputEmail" class="col-md-4 control-label">Degree</label>
+                    <div class="col-md-8">
+                        <input type="text" class="form-control" id="inputEmail" placeholder="e.g BS IT/SE/CS" name="Name">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="Row">
+            <div class="col-sm-6 col-lg-4 col-lg-offset-4">
+                <div class="form-group">
+                    <label for="inputEmail" class="col-md-4 control-label">Session</label>
+                    <div class="col-md-8">
+                        <input type="text" class="form-control" id="inputEmail" placeholder="Morning/Afternoon" name="Fall">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6 col-lg-4 col-lg-offset-4">
+                <div class="form-group">
+                    <label for="inputEmail" class="col-md-4 control-label">Enter the Number of Students</label>
+                    <div class="col-md-8">
+                        <input type="text" class="form-control" id="inputEmail" placeholder="Number Of Students" name="TotaStudents">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-6 col-lg-4 col-lg-offset-4">
+                <div class="form-group">
+                    <label for="inputEmail" class="col-md-4 control-label">Fall</label>
+                    <div class="col-md-8">
+                        <input type="text" class="form-control" id="inputEmail" placeholder="e.g 2015" name="year">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6 col-lg-4 col-lg-offset-4">
+                <div class="form-group">
+                    <button for="inputEmail" class="btn">Create Class</button>
+
+                </div>
+            </div>
+        </div>
+
+    </form>
+    <label>Error in Adding the Class</label>
+</body>

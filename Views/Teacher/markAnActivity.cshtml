@@ -1,0 +1,110 @@
+﻿@model cmsbeta5.Models.Subject
+@using cmsbeta5.Models
+@{
+    ViewBag.Title = "markAnActivity";
+}
+
+<body>
+
+    <nav class="navbar navbar-default" style="background-color:#F9864D; color:white;">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" style="background-color:#F9864D; color:white;" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only" style="background-color:#F9864D; color:white;">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#" style="background-color:#F9864D; color:white;">FUFCIT</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+
+
+
+                    <li>@Html.ActionLink("Home", "Index", new { id = ViewBag.teacher }, new { @style = "color:white;" })</li>
+
+                </ul>
+
+                <ul class="nav navbar-nav navbar-right">
+                    <div class="dropdown">
+                        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+                            @ViewBag.teacher
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="\Main" style="background-color:#F9864D; color:white;">Logout</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="\Student\ChangePassword" style="background-color:#F9864D; color:white;">Change Password </a></li>
+
+                        </ul>
+                    </div>
+
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+    <form class="form-horizontal" role="form" action="/Teacher/getMarks" method="post">
+
+
+        <div class="row">
+            <div class="col-sm-6 ">
+                <div class="form-group">
+                    <label for="inputEmail" class="col-md-4 control-label">Activity Name</label>
+                    <div class="col-md-8">
+                        <input type="text" class="form-control" id="inputEmail" placeholder="e.g Class Test" name="activityName">
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 ">
+                <div class="form-group">
+                    <label for="inputEmail" class="col-md-4 control-label">Marks</label>
+                    <div class="col-md-8">
+                        <input type="text" class="form-control" id="inputEmail" placeholder="e.g 10" name="marks">
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 ">
+                <div class="form-group">
+                    <label for="inputEmail" class="col-md-4 control-label">Class Name</label>
+                    <div class="col-md-8">
+                        <input type="text" class="form-control" id="inputEmail" placeholder="e.g 10" name="className" value=@ViewBag.subject.ClassName />
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 ">
+                <div class="form-group">
+                    <label for="inputEmail" class="col-md-4 control-label">Marking Id</label>
+                    <div class="col-md-8">
+                        <input type="text" class="form-control" id="inputEmail" placeholder="e.g 10" name="TeacherId" value=@ViewBag.subject.TeacherId />
+                    </div>
+                </div>
+            </div>
+        </div>
+       
+        
+        <br />
+        <br />
+        @foreach (Student s in ViewBag.students)
+        {
+
+
+            <div class="col-sm-6 col-lg-4 col-lg-offset-4">
+                <div class="form-group">
+                    <label for="inputEmail" class="col-md-4 control-label">@s.LoginId</label>
+                    <div class="col-md-8">
+                        <input type="text" class="form-control" id="inputEmail" placeholder="e.g 10" name=@s.LoginId />
+                    </div>
+                </div>
+            </div>
+
+
+
+        }
+        <br />
+        <button class="btn" >Submit Marks</button>
+        </form>
+
+</body>

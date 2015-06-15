@@ -1,0 +1,65 @@
+﻿@model cmsbeta5.Models.Subject
+@using cmsbeta5.Models
+@{
+    ViewBag.Title = "Index";
+}
+<head>
+    <title>Home</title>
+
+
+
+
+
+
+</head>
+<body>
+
+    <nav class="navbar navbar-default" style="background-color:#F9864D; color:white;">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" style="background-color:#F9864D; color:white;" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only" style="background-color:#F9864D; color:white;">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#" style="background-color:#F9864D; color:white;">FUFCIT</a>
+               
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+
+                    @Html.ActionLink("Home", "Index", new { id = @ViewBag.id }, new { @style = "color:white;" })
+                    </ul>
+                                <ul class="nav navbar-nav navbar-right">
+                        <div class="dropdown">
+                            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+                                @ViewBag.id
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                                <li role="presentation"><a role="menuitem" tabindex="-1" href="\Main" style="background-color:#F9864D; color:white;">Logout</a></li>
+                                <li role="presentation"><a role="menuitem" tabindex="-1" href="\Student\ChangePassword" style="background-color:#F9864D; color:white;">Change Password </a></li>
+
+                            </ul>
+                        </div>
+
+                    </ul>
+</div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+    <h1>Subject List</h1>
+    @foreach ( string [] arr in ViewBag.list)
+    {
+        <h1> Subject Details</h1>
+        <label>The Name of the Subject : @arr[0]</label>
+        <label>Uptill Now the Grade : @arr[1]</label>
+        <label>Uptill Now the Attendence : @arr[2]%</label>
+    }
+
+   
+
+</body>

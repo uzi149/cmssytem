@@ -1,0 +1,120 @@
+﻿@model cmsbeta5.Models.Subject
+@using cmsbeta5.Models
+@{
+    ViewBag.Title = "markAnActivity";
+}
+<head>
+    <title>marks</title>
+    
+</head>
+<body>
+    <script type="text/javascript">
+       
+        var x = document.getElementsByClassName("valid").value;
+       
+        var specialKeys = new Array();
+        specialKeys.push(8); //Backspace
+        function IsNumeric(e) {
+            var keyCode = e.which ? e.which : e.keyCode
+            var ret = ((keyCode >= 48 && keyCode <= 57) || specialKeys.indexOf(keyCode) != -1);
+            document.getElementById("error").style.display = ret ? "none" : "inline";
+            return ret;
+            var intValue = parseInt(x)
+            if (x > 100)
+                alert("must be less then 100");
+        }
+        function handleChange(input) {
+            if (input.value < 0) input.value = 0;
+            if (input.value >100 ) {
+                alert("value cannot be greater then 100");
+                input.value = 99;
+           }
+        }
+    </script>
+    <nav class="navbar navbar-default" style="background-color:#F9864D; color:white;">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" style="background-color:#F9864D; color:white;" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only" style="background-color:#F9864D; color:white;">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#" style="background-color:#F9864D; color:white;">Class Menu</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+
+
+                    <li><a href="\Teacher\AddActivity"><label style="background-color:#F9864D; color:white;">Add Activity</label> </a></li>
+
+
+
+                </ul>
+
+                <ul class="nav navbar-nav navbar-right">
+                    <div class="dropdown">
+                        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+                            @ViewBag.teacher
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1"></ul>
+                    </div>
+
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+    <form class="form-horizontal" role="form" action="/Teacher/finalMarks" method="post">
+        
+        <span id="error" style="color: Red; display: none">* Input digits (0 - 9)</span>
+
+        <div class="row">
+          
+            <div class="col-sm-6 ">
+                <div class="form-group">
+                    <label for="inputEmail" class="col-md-4 control-label">Class Name</label>
+                    <div class="col-md-8">
+                        <input type="text" class="form-control" id="inputEmail" placeholder="e.g 10" name="className" value=@ViewBag.subject.ClassName />
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 ">
+                <div class="form-group">
+                    <label for="inputEmail" class="col-md-4 control-label">Marking Id</label>
+                    <div class="col-md-8">
+                        <input type="text" class="form-control" id="inputEmail" placeholder="e.g 10" name="TeacherId" value=@ViewBag.subject.TeacherId />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <label>You can give Marks from @ViewBag.marks</label>
+
+        <br />
+        <br />
+        
+        @foreach (Student s in ViewBag.students)
+        {
+
+
+            <div class="col-sm-6 col-lg-4 col-lg-offset-4">
+                <div class="form-group">
+                    <label for="inputEmail" class="col-md-4 control-label">@s.LoginId</label>
+                    <div class="col-md-8">
+                        <input type="text" class="form-control valid" id="inputEmail" onchange="handleChange(this);" onkeypress="return IsNumeric(event);" ondrop="return false;" onpaste="return false;" placeholder=" e.g 10" name=@s.LoginId required />
+                    </div>
+                </div>
+            </div>
+           
+
+
+
+        }
+        <br />
+        <button class="btn">Submit Marks</button>
+    </form>
+
+</body>
